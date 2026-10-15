@@ -161,9 +161,9 @@
     return h.byRemainder[rem] || null;
   }
   function q2Testimonies() {
-    if (noHints()) return [];
+    // 全員共通の証言（common）はテーブル0でも表示し、テーブル別の証言だけ隠す
     var t = Q('q2').testimonies || {}, list = (t.common || []).slice(), bt = t.byTable || [];
-    if (bt.length) {
+    if (bt.length && !noHints()) {
       var idx = (((state.table - 1) % bt.length) + bt.length) % bt.length;
       if (bt[idx]) list.push(bt[idx]);
     }

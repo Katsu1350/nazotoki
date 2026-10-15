@@ -41,7 +41,7 @@ HTML / CSS / JavaScript だけで動く静的サイトです（サーバー・�
 |---|---|
 | タイトル | `title` |
 | 制限時間（分） | `timer.limitMinutes` |
-| テーブル・座席番号の上限 | `numberLimits`（既定 テーブル4・座席7）。テーブル番号0を入力すると全問題のヒントが非表示になります（0は画面に表示されません） |
+| テーブル・座席番号の上限 | `numberLimits`（既定 テーブル4・座席7）。テーブル番号0を入力すると各問題のヒントが非表示になります（第2問の共通の証言Aは表示）（0は画面に表示されません） |
 | 第1問の問題文・画像 | `questions.q1.text` / `questions.q1.image` |
 | 第1問のヒント | `questions.q1.hint.byRemainder`（0,1,2 は座席番号を3で割った余り） |
 | 第2問の証言 | `questions.q2.testimonies`（`common` は全員、`byTable` はテーブル別） |
