@@ -680,7 +680,7 @@
   /* ---- 振り返り ---- */
   function tileHtml(t) {
     var col = t.color && CFG.colors && CFG.colors[t.color];
-    if (!col) return '<div class="tile-wrap"><div class="tile"><span class="tch">' + esc(t.char) + '</span></div><div class="tile-cap">&nbsp;</div></div>';
+    if (!col) return '<div class="tile-wrap"><div class="tile"><span class="tch">' + esc(t.char) + '</span></div></div>';
     var bg;
     if (Array.isArray(t.shape) && t.shape.length) {
       var rows = t.shape.length, cols = t.shape[0].length;
@@ -690,7 +690,7 @@
         }).join('') + '</div>';
     } else bg = '<div class="fill" aria-hidden="true" style="background:' + esc(col.css) + '"></div>';
     return '<div class="tile-wrap"><div class="tile" role="img" aria-label="' + esc(t.char + '（' + col.label + '色の背景）') + '">' + bg +
-      '<span class="tch">' + esc(t.char) + '</span></div><div class="tile-cap" style="background:' + esc(col.css) + '">' + esc(col.label) + '</div></div>';
+      '<span class="tch">' + esc(t.char) + '</span></div></div>';
   }
   function renderReview() {
     ui.screen = 'review';
@@ -699,10 +699,8 @@
       if (!state.solved[id]) return '<section class="card locked-card" id="' + id2 + '"><h2>' + esc(labelOf(id)) + '</h2><p>まだ正解していません。</p></section>';
       state.reviewViewed[id] = true;
       var tiles = (q.review && q.review.tiles) || [];
-      var colored = tiles.filter(function (t) { return t.color && CFG.colors && CFG.colors[t.color]; });
       return '<section class="card" id="' + id2 + '"><h2>' + esc(labelOf(id)) + 'の答え</h2>' +
         (tiles.length ? '<div class="rv-tiles">' + tiles.map(tileHtml).join('') + '</div>' : '<p class="notice">' + esc(MSG.unset) + '</p>') +
-        (colored.length ? '<ul class="legend">' + colored.map(function (t) { return '<li>色付きの文字：' + esc(t.char) + '（' + esc(CFG.colors[t.color].label) + '）</li>'; }).join('') + '</ul>' : '') +
         (q.review && q.review.note ? '<p>' + nl(q.review.note) + '</p>' : '') + '</section>';
     }).join('');
     saveState();

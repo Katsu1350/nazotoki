@@ -146,8 +146,6 @@ button,input{font:inherit}
 .tile .fill{position:absolute;inset:0}
 .tile .shape{position:absolute;inset:0;display:grid}
 .tile .shape i.off{background:transparent}
-.tile-cap{font-size:.8rem;font-weight:800;color:#10162b;border-radius:999px;padding:0 10px}
-.legend{margin:6px 0 0;padding:0;list-style:none;font-weight:700}
 .locked-card{color:var(--muted)}
 
 /* ---- オーバーレイ ---- */
